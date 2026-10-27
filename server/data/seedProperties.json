@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Bhiwandi Logistics Park",
+    "type": "warehousing",
+    "location": "Bhiwandi, Maharashtra",
+    "area": 150000,
+    "rent": 22,
+    "power": 500,
+    "height": "12 Meters",
+    "docks": "16 (Dock Levelers)",
+    "flooring": "FM2 (5T/sqm)",
+    "zoning": "MIDC Approved",
+    "truckAccess": true,
+    "grade": "Grade A",
+    "availability": "Available",
+    "description": "Strategically located along the Mumbai-Nashik Highway, this Grade A logistics facility offers state-of-the-art infrastructure designed for modern supply chain operations.",
+    "photos": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBOrj67eFfgCdS7Wp1xFjuXaTrNAn3q7xcfWt2utd99xdigFLhhI-1zAtPjtK001Aw-jkbIYTB6f48pqTmdh7SOwZ0N3wG8EqCzuIvBYY3xVw5yD8lKArEpj2YJyaO_axwQasHQG5tYxCprUY4SifqKRc8KHK6aUYP0XihuQv0PBB066pkAslVSR4goSDMdI7QBsMLykU--k_Qb38NsjoK7w55YurLlccvORjiO-S1XlEp-Wkh248nn"
+    ],
+    "ownerKey": "seed-owner-1"
+  },
+  {
+    "title": "Grade A Logistics Warehouse",
+    "type": "warehousing",
+    "location": "Chakan Industrial Area, Pune Phase II",
+    "area": 120000,
+    "rent": 22,
+    "power": 250,
+    "height": "12m Clear",
+    "docks": "Dock Levelers",
+    "flooring": "Fire Sprinklers",
+    "zoning": "MIDC Approved",
+    "truckAccess": true,
+    "grade": "Premium",
+    "availability": "Available",
+    "description": "Premium logistics warehouse with dock levelers and fire sprinkler system, located in Pune's Chakan industrial belt.",
+    "photos": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBWu8OhFhuiZxRtL7gffoVh9cbKenir-egradAKnlmK-gdlg2fM662FZS2UurYr5x85FIXIj5bVjM9KQxBfH-om2c--1QK2ZLq5o1jkN7-gKy-vgyAtb6tlSwS3aZb-iBTMJZGrG5feZ2SPH3XIDoy9wwpsyu7Jy7QMOLM5XTD4J5fTqgrN5ZQFzAcTjHMQ4tF6JAOlCRGkPb-CLx9wTLr2JlNiKdTR222kYSB3ShzPJL0t8eMF9vms"
+    ],
+    "ownerKey": "seed-owner-1"
+  },
+  {
+    "title": "Standalone Factory Setup",
+    "type": "manufacturing",
+    "location": "Talegaon MIDC, Pune",
+    "area": 45000,
+    "rent": 18,
+    "power": 500,
+    "height": "10 Ton EOT Crane",
+    "docks": "2",
+    "flooring": "Heavy Engineering Grade",
+    "zoning": "Standalone Factory",
+    "truckAccess": true,
+    "grade": "Standard",
+    "availability": "Available",
+    "description": "Standalone factory unit built for heavy engineering, complete with a 10-ton EOT crane and HT power connection.",
+    "photos": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAii2LSIWsL4x3aLHG50Q8Br56z0ZixryoF7eIRKfLUwF1atqdcb051a9HpU0jSKUDC8QPsysY9b33Ngdy7N2se2qZFQPCYSN95B2XD7oTR48Xyx0tv0QaOqrqjYdTX89QYj_dBJnYz87A5dHfR2u3s0mH7L8HCOcKgbH2BMoYyRONHhrQxnYNNqK8U_RyFZ9q730AeiMDFHYqBKkRkHnf55KdAxrlnOPH3ACFJS55vMTQLtBODS0ga"
+    ],
+    "ownerKey": "seed-owner-2"
+  },
+  {
+    "title": "Industrial Park Facility",
+    "type": "manufacturing",
+    "location": "Gurgaon, Haryana",
+    "area": 80000,
+    "rent": 20,
+    "power": 300,
+    "height": "10 Meters",
+    "docks": "6",
+    "flooring": "Standard RCC",
+    "zoning": "Private Logistics Park",
+    "truckAccess": true,
+    "grade": "Grade A",
+    "availability": "Available",
+    "description": "Well connected industrial park facility in Gurgaon, suited for auto parts and light manufacturing operations.",
+    "photos": [
+      "https://picsum.photos/seed/bizlocate-gurgaon/800/600"
+    ],
+    "ownerKey": "seed-owner-2"
+  },
+  {
+    "title": "Logistics Hub Alpha",
+    "type": "warehousing",
+    "location": "Bhiwandi, Maharashtra",
+    "area": 50000,
+    "rent": 25,
+    "power": 200,
+    "height": "9 Meters",
+    "docks": "4",
+    "flooring": "FM2",
+    "zoning": "MIDC Approved",
+    "truckAccess": true,
+    "grade": "Standard",
+    "availability": "Available",
+    "description": "Compact and well managed logistics hub, ideal for e-commerce fulfilment operations near Bhiwandi.",
+    "photos": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCsQHyuqAf9T2ELqfaisDfSL9FqiVLPnngHi6mtXrM3B2NoMaXJBG0B2dWIQfw8saw5IxN543miChklbXznBUDmiB0NLWccYubVCnUn2mKx5XhlbYgOP3YdD14d8zy7jXu5yhbfTxCI2jqCXpfhKO3GZf4_LZ_HtBqEurFm1-F2qX1rJElA8RSm5CdN_fFz42bKOtufTfhHvuKg8yNUwHtjgfdxPKWLNCFcaIcQ1MOySIQzKR3UvhRC"
+    ],
+    "ownerKey": "seed-owner-1"
+  },
+  {
+    "title": "Tech Park Facility B",
+    "type": "rd",
+    "location": "Whitefield, Bangalore",
+    "area": 25000,
+    "rent": 60,
+    "power": 150,
+    "height": "6 Meters",
+    "docks": "1",
+    "flooring": "Raised Access Flooring",
+    "zoning": "IT / R&D Park",
+    "truckAccess": false,
+    "grade": "Draft",
+    "availability": "Draft",
+    "description": "Flex R&D space suited for light assembly and technology operations in Whitefield, Bangalore.",
+    "photos": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCChMvDKe2PznrWEnCRA1tIjWTvp-aWPDA7PCC0O1oE2-z8mzLMH6X66cZKFsfRaprh9JqdbQD6Q4QkcxtWERIcy2rmi63qTy0YSlOckUToEfbmv85d5M8ZipcGQEB0fIOsJY4H0cJNvYL6hb5XqYeo6kyH-bAr4YLLhsaqySuH_gih2w3V9m1Udm4UpT-48hvNZMngUGtKm9lKfBqURYx1k_YboYt-cWPyLqCLTK2RwzPD_D7HZPpz"
+    ],
+    "ownerKey": "seed-owner-2"
+  }
+]

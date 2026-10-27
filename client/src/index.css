@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+/* ---------- Theme: same fonts as the original BizLocate ---------- */
+@theme {
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Tailwind v4 makes borders black by default; BizLocate uses soft gray ones. */
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button { border-color: var(--color-gray-200); }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+  body { font-family: var(--font-sans); }
+  /* The icon font turns a word like "favorite" into a picture. Until the font has loaded, the word would show
+     as long text and push the layout around, so the icon box is locked to 1em x 1em and clips the overflow. */
+  .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 400; user-select: none; display: inline-block; width: 1em; height: 1em; overflow: hidden; white-space: nowrap; flex-shrink: 0; vertical-align: middle; }
+}
+
+/* =========================================================
+   Keyframes - every animation in the site is defined here
+   ========================================================= */
+@keyframes fade-up   { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scale-in  { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes slide-in  { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: none; } }
+@keyframes float     { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-24px) scale(1.06); } }
+@keyframes shimmer   { from { background-position: -400px 0; } to { background-position: 400px 0; } }
+@keyframes heart-pop { 0% { transform: scale(1); } 40% { transform: scale(1.45); } 100% { transform: scale(1); } }
+@keyframes grow-bar  { from { width: 0; } }
+@keyframes draw-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Page transition: <PageTransition> gives every route this class */
+.page-enter { animation: fade-up .55s cubic-bezier(.16, 1, .3, 1) both; }
+
+/* Staggered entrance: each child sets style={{ "--i": index }} */
+.stagger-item { animation: fade-up .6s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+
+/* Scroll reveal: starts hidden, useReveal() adds .active when it scrolls into view */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1); transition-delay: calc(var(--i, 0) * 90ms); }
+.reveal.active { opacity: 1; transform: none; }
+
+.animate-scale-in { animation: scale-in .25s cubic-bezier(.16, 1, .3, 1) both; }
+.animate-fade-in  { animation: fade-in .25s ease both; }
+.animate-slide-in { animation: slide-in .35s cubic-bezier(.16, 1, .3, 1) both; }
+.animate-float    { animation: float 9s ease-in-out infinite; }
+.animate-heart    { animation: heart-pop .4s ease; }
+.animate-grow-bar { animation: grow-bar 1.1s cubic-bezier(.16, 1, .3, 1) both; }
+
+.skeleton { background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 37%, #f3f4f6 63%); background-size: 800px 100%; animation: shimmer 1.4s linear infinite; border-radius: .5rem; }
+
+/* =========================================================
+   Brand: logo, navbar link, badges, cards (same colours as before)
+   ========================================================= */
+.nav-link { position: relative; color: #4b5563; font-weight: 700; padding: 4px 0; transition: color .15s ease; }
+.nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: #1d4ed8; transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
+.nav-link:hover { color: #1d4ed8; }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-link.active { color: #1d4ed8; }
+
+.brand-mark { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #2563eb, #1e3a8a); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(30, 58, 138, .25); transition: transform .25s cubic-bezier(.16, 1, .3, 1); flex-shrink: 0; }
+.brand-link:hover .brand-mark { transform: scale(1.1) rotate(-6deg); }
+.brand-wordmark { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+.brand-wordmark .biz { color: #1e3a8a; }
+.brand-wordmark .locate { color: #f97316; }
+
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+.badge-premium   { background: #f97316; color: #fff; }
+.badge-available { background: #059669; color: #fff; }
+.badge-draft     { background: #6b7280; color: #fff; }
+.badge-match     { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.badge-verified  { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.badge-pending   { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.badge-rejected  { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+/* Smaller logo on narrow phones so the logged-in navbar (logo + heart + profile + menu) fits */
+@media (max-width: 440px) {
+  .brand-wordmark { font-size: 1.15rem; }
+  .brand-mark { width: 32px; height: 32px; border-radius: 8px; }
+  .brand-mark .material-symbols-outlined { font-size: 18px; }
+}
+
+.brand-card { transition: box-shadow .3s ease, transform .3s cubic-bezier(.16, 1, .3, 1); }
+.brand-card:hover { box-shadow: 0 16px 32px -8px rgba(29, 78, 216, .2); transform: translateY(-4px); }
+
+/* Buttons */
+.btn-orange { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; background: #f97316; color: #fff; font-weight: 700; padding: .65rem 1.4rem; border-radius: .6rem; box-shadow: 0 4px 10px rgba(249, 115, 22, .25); transition: transform .2s cubic-bezier(.16, 1, .3, 1), box-shadow .2s, background .2s; }
+.btn-orange:hover:not(:disabled) { background: #ea580c; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(249, 115, 22, .35); }
+.btn-blue { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; background: #1d4ed8; color: #fff; font-weight: 700; padding: .65rem 1.4rem; border-radius: .6rem; box-shadow: 0 4px 10px rgba(29, 78, 216, .25); transition: transform .2s cubic-bezier(.16, 1, .3, 1), box-shadow .2s, background .2s; }
+.btn-blue:hover:not(:disabled) { background: #1e40af; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(29, 78, 216, .3); }
+.btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; color: #1d4ed8; font-weight: 700; padding: .55rem 1.2rem; border: 2px solid #1d4ed8; border-radius: .6rem; transition: background .2s, transform .2s cubic-bezier(.16, 1, .3, 1); }
+.btn-outline:hover:not(:disabled) { background: #eff6ff; transform: translateY(-2px); }
+.btn-orange:active:not(:disabled), .btn-blue:active:not(:disabled), .btn-outline:active:not(:disabled) { transform: scale(.96); }
+.btn-orange:disabled, .btn-blue:disabled, .btn-outline:disabled { opacity: .6; cursor: not-allowed; }
+
+/* Glass navbar */
+.glass-nav { background: rgba(255, 255, 255, .92); backdrop-filter: blur(12px); transition: box-shadow .3s ease; }
+.glass-nav.scrolled { box-shadow: 0 6px 24px -8px rgba(30, 58, 138, .18); }
+
+/* Forms (blueprint grid background on the business / owner pages) */
+.blueprint-grid {
+  background-color: #F7F5F2;
+  background-image: linear-gradient(to right, rgba(0, 82, 209, .05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 82, 209, .05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.form-input-focus { transition: background-color .2s, border-color .2s, box-shadow .2s; }
+.form-input-focus:focus-within { background-color: #F1F1F1; border-color: #0052d1; box-shadow: 0 0 0 3px rgba(0, 82, 209, .12); }
+
+/* Heart button on cards */
+.wishlist-btn { transition: transform .2s cubic-bezier(.16, 1, .3, 1); }
+.wishlist-btn:hover { transform: scale(1.15); }
+.wishlist-btn.active .material-symbols-outlined { font-variation-settings: "FILL" 1; color: #f97316; }
+
+/* Toasts */
+.toast { min-width: 240px; max-width: 340px; padding: 12px 16px; border-radius: 10px; color: #fff; font-size: 14px; font-weight: 600; box-shadow: 0 10px 24px rgba(0, 0, 0, .18); animation: slide-in .35s cubic-bezier(.16, 1, .3, 1) both; }
+.toast.success { background: #16a34a; }
+.toast.error   { background: #dc2626; }
+.toast.info    { background: #1d4ed8; }
+
+.empty-state { text-align: center; padding: 48px 24px; color: #6b7280; border: 1px dashed #d1d5db; border-radius: 12px; background: #fff; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Shareholders */
+.shareholder-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border: 1px solid #e5e7eb; border-radius: 8px; background: #f9fafb; transition: background .2s, transform .2s; }
+.shareholder-row:hover { background: #eff6ff; transform: translateX(4px); }
+.share-request-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 14px; border: 1px solid #fed7aa; background: #fff7ed; border-radius: 8px; margin-bottom: 8px; }
+
+/* Gallery */
+.gallery-thumb { transition: transform .25s cubic-bezier(.16, 1, .3, 1), box-shadow .25s, opacity .25s; opacity: .7; }
+.gallery-thumb:hover { opacity: 1; transform: translateY(-3px); }
+.gallery-thumb.active { opacity: 1; box-shadow: 0 0 0 3px #f97316; }
+
+/* Respect people who turn animations off in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}

@@ -1,0 +1,7 @@
+node_modules/
+.env
+dist/
+server/uploads/photos/*
+server/uploads/docs/*
+!server/uploads/photos/.gitkeep
+!server/uploads/docs/.gitkeep
